@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <a mat-button routerLink="/">
+            <h2>Commercial Template</h2>
+        </a>
+        <div class="spacer"></div>
+        <button mat-button routerLink="/transactions">
+            Transactions
+        </button>
+        <button mat-icon-button (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="main-contianer">
+    <router-outlet></router-outlet>
+</div>

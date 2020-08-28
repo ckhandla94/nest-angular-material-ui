@@ -1,0 +1,34 @@
+<mat-card class="welcome-card">
+    <mat-card-content>
+        <h1>Welcome, {{user?.name}}</h1>
+        <!-- <button color="warn" mat-flat-button (click)="logout()">Logout</button> -->
+    </mat-card-content>
+    <mat-card-content class="payment-card">
+        <div class="text-center">
+            <form novalidate (ngSubmit)="createToken()" [formGroup]="stripeForm">
+                <http-message type="error" [data]="paymentError"></http-message>
+
+                <div class="form-field w-100">
+                    <mat-form-field>
+                        <mat-label>Amount</mat-label>
+                        <input formControlName="amount" type="number" matInput required>
+                        <mat-error *ngIf="stripeForm.get('amount').hasError('required')">Please enter amount
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+
+                <div class="action">
+                    <button [disabled]="loading" mat-flat-button color="primary" type="submit">
+                        Make Payment {{ stripeForm.get('amount').value ? '($'+ stripeForm.get('amount').value+')' : '' }}
+                    </button>
+                    <mat-spinner [diameter]="36" [strokeWidth]="3" *ngIf="loading"></mat-spinner>
+                </div>
+            </form>
+        </div>
+        <div class="payment-data">
+
+        </div>
+    </mat-card-content>
+</mat-card>

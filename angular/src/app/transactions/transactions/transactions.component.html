@@ -1,0 +1,21 @@
+<mat-card class="transactions-list">
+    <mat-card-content>
+        <mat-list *ngIf="!loading; else loadingEl">
+            <ng-template [ngIf]="transactions?.length > 0" [ngIfElse]="noTransactions">
+                <mat-list-item *ngFor="let transaction of transactions">
+                    <div mat-line>{{transaction.amount | currency}}</div>
+                    <div mat-line> {{transaction.createdAt | date}} </div>
+                    <div mat-line> {{transaction.transactionId}} </div>
+                </mat-list-item>
+            </ng-template>
+            <ng-template #noTransactions>
+                <mat-list-item>
+                    <div mat-line>No payment transactions yet</div>
+                </mat-list-item>
+            </ng-template>
+        </mat-list>
+        <ng-template #loadingEl>
+            <mat-spinner [diameter]="36" [strokeWidth]="3"></mat-spinner>
+        </ng-template>
+    </mat-card-content>
+</mat-card>

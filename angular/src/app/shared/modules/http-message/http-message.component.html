@@ -1,0 +1,11 @@
+<div class="alert alert-{{type}}" *ngIf="showMessage">
+        <div class="messages">
+            <div *ngFor="let error of errorMessage">{{ error }} </div>
+        </div>
+        <div class="close-buttion">
+            <button mat-icon-button  (click)="closeMessage()">
+                <!-- &times; -->
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+</div>

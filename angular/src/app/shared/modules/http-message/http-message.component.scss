@@ -1,0 +1,32 @@
+
+:host {
+    .alert {
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        &.alert-danger {
+            color: $warn;
+            background-color: rgba(theme('colors.red.500'), $alpha: 0.1);
+        }
+        &.alert-success {
+            color: $success;
+            background-color: rgba(theme('colors.green.500'), $alpha: 0.1);
+        }
+    }
+    .messages {
+        flex-shrink: 1;
+        width: 100%;
+    }
+    .close-buttion {
+        flex-shrink: 0;
+    }
+    .alert.active {
+        display: block;
+    }
+    .material-icons {
+        vertical-align: text-bottom;
+        font-size: 1em;
+    }
+}

@@ -1,0 +1,113 @@
+@import "@angular/material/_theming.scss";
+
+$config: mat-typography-config(
+    $font-family: var(--font),
+    $display-4:
+        mat-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+    $display-3: mat-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+    $display-2: mat-typography-level(46px, 48px, 400, $letter-spacing: -0.005em),
+    $display-1: mat-typography-level(36px, 40px, 400),
+    $headline: mat-typography-level(24px, 32px, 400),
+    $title: mat-typography-level(18px, 26px, 500),
+    $subheading-2: mat-typography-level(18px, 28px, 400),
+    $subheading-1: mat-typography-level(16px, 24px, 400),
+    $body-2: mat-typography-level(16px, 24px, 400),
+    $body-1: mat-typography-level(14px, 20px, 400),
+    $caption: mat-typography-level(12px, 20px, 400),
+    $button: mat-typography-level(14px, 14px, 500),
+    $input: mat-typography-level(14px, 1.125, 400),
+) !default;
+
+
+$configMobile: mat-typography-config(
+    $font-family: var(--font),
+    $display-4:
+        mat-typography-level(80px, 80px, 300, $letter-spacing: -0.05em),
+    $display-3: mat-typography-level(46px, 46px, 400, $letter-spacing: -0.02em),
+    $display-2: mat-typography-level(36px, 38px, 400, $letter-spacing: -0.005em),
+    $display-1: mat-typography-level(26px, 30px, 400),
+    $headline: mat-typography-level(20px, 26px, 400),
+    $title: mat-typography-level(16px, 24px, 500),
+    $subheading-2: mat-typography-level(16px, 24px, 400),
+    $subheading-1: mat-typography-level(14px, 22px, 400),
+    $body-2: mat-typography-level(14px, 22px, 400),
+    $body-1: mat-typography-level(12px, 18px, 400),
+    $caption: mat-typography-level(12px, 20px, 400),
+    $button: mat-typography-level(14px, 14px, 500),
+    $input: mat-typography-level(14px, 1.125, 400)
+) !default;
+
+$app-primary: mat-palette(
+  (
+    50: #e1f0f9,
+    100: #b3d9ef,
+    200: #80c0e5,
+    300: #4da7db,
+    400: #2794d3,
+    500: #0181cb,
+    600: #0179c6,
+    700: #016ebe,
+    800: #0164b8,
+    900: #0051ac,
+    A100: #d5e6ff,
+    A200: #a2c8ff,
+    A400: #6fa9ff,
+    A700: #569aff,
+    contrast: (
+      50: #000000,
+      100: #000000,
+      200: #000000,
+      300: #000000,
+      400: #ffffff,
+      500: #ffffff,
+      600: #ffffff,
+      700: #ffffff,
+      800: #ffffff,
+      900: #ffffff,
+      A100: #000000,
+      A200: #000000,
+      A400: #000000,
+      A700: #000000,
+    ),
+  )
+) !default;
+
+/* For use in src/lib/core/theming/_palette.scss */
+
+$app-accent: mat-palette($mat-pink) !default;
+
+// The warn palette is optional (defaults to red).
+$app-warn: mat-palette($mat-red) !default;
+
+$app-theme-foreground: (
+  text: black,
+  elevation: $mat-elevation-color,
+  divider: rgba(82, 63, 105, 0.06),
+) !default;
+
+$app-theme-background: (
+  app-bar: #ebebee,
+) !default;
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: (
+  primary: $app-primary,
+  accent: $app-accent,
+  warn: $app-warn,
+  is-dark: false,
+  foreground: map_merge($mat-light-theme-foreground, $app-theme-foreground),
+  background: map_merge($mat-light-theme-background, $app-theme-background),
+) !default;
+
+$app-dark-theme-background: (
+  
+) !default;
+
+$app-dark-theme: (
+  primary: $app-primary,
+  accent: $app-accent,
+  warn: $app-warn,
+  is-dark: true,
+  foreground: $mat-dark-theme-foreground,
+  background: map_merge($mat-dark-theme-background, $app-dark-theme-background),
+) !default;

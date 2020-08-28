@@ -1,0 +1,15 @@
+<mat-card class="payment-card">
+    <mat-card-content>
+        <div class="text-center">
+            <div class="form-field w-100">
+                <div class="success-icon">
+                    <mat-icon>check_circle_outline</mat-icon>
+                </div>
+                <h1>Success</h1>
+                <p>Thank you you payment of <strong>{{ transaction.amount | currency}}</strong> has been successfully done.</p>
+                <p>Your <strong>Transaction Id</strong> is <strong>{{ transaction?.transactionId }}</strong> </p>
+            </div>
+            <a mat-flat-button routerLink="/" color="primary" type="submit"> Home </a>
+        </div>
+    </mat-card-content>
+</mat-card>

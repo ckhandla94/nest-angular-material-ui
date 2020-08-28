@@ -1,0 +1,75 @@
+<div class="register-container">
+    <mat-card>
+        <div class="card overflow-hidden w-full max-w-sm">
+            <div class="text-center mt-4">
+                <h2 class="title m-0">Register</h2>
+                <h4 class="body-2 text-secondary m-0">register with your credentials below.</h4>
+            </div>
+
+            <div>
+                <form class="register-form" (ngSubmit)="send()" [formGroup]="form">
+                    <http-message [data]="registerMessage"></http-message>
+
+                    <div class="form-field w-100">
+                        <mat-form-field>
+                            <mat-label>First Name</mat-label>
+                            <input formControlName="firstName" name="firstName" matInput required>
+                            <mat-error *ngIf="form.get('firstName').hasError('required')">First name is require
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-field w-100">
+                        <mat-form-field>
+                            <mat-label>Last Name</mat-label>
+                            <input formControlName="lastName" name="lastName" matInput required>
+                            <mat-error *ngIf="form.get('lastName').hasError('required')">Last name is require
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field w-100">
+                        <mat-form-field>
+                            <mat-label>E-Mail</mat-label>
+                            <input type="email" formControlName="email" matInput required>
+                            <mat-error *ngIf="form.get('email').hasError('required')">We need an email address to log
+                                you in </mat-error>
+                            <mat-error *ngIf="form.get('email').hasError('email')">Please enter valid email</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field w-100">
+                        <mat-form-field>
+                            <mat-label>Password</mat-label>
+                            <input [type]="inputType" formControlName="password" matInput required>
+                            <button (click)="toggleVisibility()" mat-icon-button matSuffix
+                                matTooltip="Toggle Visibility" type="button">
+                                <mat-icon *ngIf="visible">visibility</mat-icon>
+                                <mat-icon *ngIf="!visible">visibility_off</mat-icon>
+                            </button>
+                            <mat-hint>Click the eye to toggle visibility</mat-hint>
+                            <mat-error *ngIf="form.get('password').hasError('required')">We need a password to log you
+                                in</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="text-center">
+                        <button color="primary" mat-flat-button> Register </button>
+                    </div>
+                </form>
+
+                <p class="text-secondary text-center">
+                    Do have an account?
+                    <a color="primary" mat-button [routerLink]="['/login']">Click here to Login</a>
+                </p>
+            </div>
+            <div class="social-login-block">
+                <a mat-flat-button type="button" class="btn-social btn-google"
+                    href="http://localhost:3000/api/auth/google">
+                    Google
+                </a>
+                <a mat-flat-button type="button" class="btn-social btn-facebook" href="http://localhost:3000/api/auth/facebook">
+                    Facebook
+                </a>
+            </div>
+        </div>
+    </mat-card>
+</div>
